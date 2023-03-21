@@ -10,6 +10,8 @@
 		980FC0A729C9C42800771137 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 980FC0A629C9C42800771137 /* Starscream */; };
 		980FC0AA29C9C44000771137 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 980FC0A929C9C44000771137 /* SwiftProtobuf */; };
 		980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */; };
+		980FC0AF29C9CDC000771137 /* PricingData.proto in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0AE29C9CDC000771137 /* PricingData.proto */; };
+		980FC0B129C9CDCD00771137 /* PricingData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0B029C9CDCD00771137 /* PricingData.pb.swift */; };
 		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
 		987A375F29C6827B00102629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375E29C6827B00102629 /* ContentView.swift */; };
 		987A376129C6827C00102629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376029C6827C00102629 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
+		980FC0AE29C9CDC000771137 /* PricingData.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; name = PricingData.proto; path = TradingSimulator/ProtobufDecoder/ProtoFiles/PricingData.proto; sourceTree = SOURCE_ROOT; };
+		980FC0B029C9CDCD00771137 /* PricingData.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PricingData.pb.swift; path = TradingSimulator/ProtobufDecoder/ProtoFiles/PricingData.pb.swift; sourceTree = SOURCE_ROOT; };
 		987A375929C6827B00102629 /* TradingSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987A375C29C6827B00102629 /* TradingSimulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingSimulatorApp.swift; sourceTree = "<group>"; };
 		987A375E29C6827B00102629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,9 +50,19 @@
 		980FC0AB29C9C7BD00771137 /* ProtobufDecoder */ = {
 			isa = PBXGroup;
 			children = (
+				980FC0B229C9CDDA00771137 /* ProtoFiles */,
 				980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */,
 			);
 			path = ProtobufDecoder;
+			sourceTree = "<group>";
+		};
+		980FC0B229C9CDDA00771137 /* ProtoFiles */ = {
+			isa = PBXGroup;
+			children = (
+				980FC0B029C9CDCD00771137 /* PricingData.pb.swift */,
+				980FC0AE29C9CDC000771137 /* PricingData.proto */,
+			);
+			path = ProtoFiles;
 			sourceTree = "<group>";
 		};
 		987A375029C6827B00102629 = {
@@ -185,8 +199,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				987A375F29C6827B00102629 /* ContentView.swift in Sources */,
+				980FC0AF29C9CDC000771137 /* PricingData.proto in Sources */,
 				987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */,
 				980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */,
+				980FC0B129C9CDCD00771137 /* PricingData.pb.swift in Sources */,
 				987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */,
 				987A376C29C72E7500102629 /* StockModel.swift in Sources */,
 			);

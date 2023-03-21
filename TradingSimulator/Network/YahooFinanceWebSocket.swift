@@ -12,11 +12,17 @@ struct SubscribeModel: Encodable {
     let subscribe: [String]
 }
 
+struct UnSubscribeModel: Encodable {
+    let unsubscribe: [String]
+}
+
 class WebsocketSubscriber {
+    let id: UUID
     let symbol: String
     let updateAction: (StockModel) -> Void
     
     init(symbol: String, updateAction: @escaping (StockModel) -> Void) {
+        id = UUID()
         self.symbol = symbol
         self.updateAction = updateAction
     }
@@ -45,24 +51,19 @@ class YahooFinanceWebSocket: WebSocketDelegate {
         socket?.connect()
     }
     
-    func addSubscriber(_ subscriber: WebsocketSubscriber) throws {
-        guard isConnected else { throw YahooFinanceWebSocketError.notConnected }
-        
-        subscribeToSymbol([subscriber.symbol])
-        subscribers.append(subscriber)
-    }
-    
-    func addSubscriber(_ subscribers: [WebsocketSubscriber]) throws {
+    func addSubscribers(_ subscribers: [WebsocketSubscriber]) throws {
         guard isConnected else { throw YahooFinanceWebSocketError.notConnected }
 
         subscribeToSymbol(subscribers.map({ $0.symbol }))
         self.subscribers.append(contentsOf: subscribers)
     }
     
-    func subscribeToSymbol(_ symbols: [String]) {
-        let model = SubscribeModel(subscribe: symbols)
-        let json = try! JSONEncoder().encode(model)
-        socket?.write(stringData: json, completion: nil)
+    func removeSubscriber(with id: UUID) throws {
+        guard isConnected else { throw YahooFinanceWebSocketError.notConnected }
+        
+        let removedElems = subscribers.filter({ $0.id == id })
+        subscribers.removeAll(where: { $0.id == id })
+        disconnect(removedElems.map({ $0.symbol }))
     }
     
     func disconnect() {
@@ -74,12 +75,18 @@ class YahooFinanceWebSocket: WebSocketDelegate {
         case .connected(let headers):
             isConnected = true
             print("websocket is connected: \(headers)")
-            try? self.subscribeToSymbol(["^IXIC"])
+            self.subscribeToSymbol(["THB=X", "BTC", "ETC", "USDT"])
         case .disconnected(let reason, let code):
             isConnected = false
             print("websocket is disconnected: \(reason) with code: \(code)")
         case .text(let string):
-            print("Received text: \(string)")
+            if let decodedData = try? ProtobufDecoder().decode(type: PricingData.self, base64EncodedString: string) {
+                subscribers.forEach({
+                    if $0.symbol == decodedData.id {
+                        $0.updateAction(StockModel(from: decodedData))
+                    }
+                })
+            }
         case .binary(let data):
             print("Received data: \(data.count)")
         case .ping(_):
@@ -98,10 +105,6 @@ class YahooFinanceWebSocket: WebSocketDelegate {
         }
     }
     
-    private func handleError(_ error: Error?) {
-        print(error)
-    }
-    
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         let json = try! JSONSerialization.jsonObject(with: text.data(using: .utf8)!, options: []) as! [String: Any]
         if json["type"] as? String == "ping" {
@@ -114,4 +117,20 @@ class YahooFinanceWebSocket: WebSocketDelegate {
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {}
+    
+    private func subscribeToSymbol(_ symbols: [String]) {
+       let model = SubscribeModel(subscribe: symbols)
+       let json = try! JSONEncoder().encode(model)
+       socket?.write(stringData: json, completion: nil)
+    }
+       
+    private func disconnect(_ symbols: [String]) {
+        let model = UnSubscribeModel(unsubscribe: symbols)
+        let json = try! JSONEncoder().encode(model)
+        socket?.write(stringData: json, completion: nil)
+    }
+    
+    private func handleError(_ error: Error?) {
+        print(error)
+    }
 }

@@ -9,6 +9,16 @@ import Foundation
 
 
 struct StockModel: Decodable {
-    let price: Double?
+    let price: Float?
     let currency: String?
+    
+    init(price: Float?, currency: String?) {
+        self.price = price
+        self.currency = currency
+    }
+    
+    init(from pricingData: PricingData) {
+        price = pricingData.price
+        currency = pricingData.id
+    }
 }
