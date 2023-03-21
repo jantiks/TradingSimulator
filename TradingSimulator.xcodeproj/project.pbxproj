@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		980FC0A729C9C42800771137 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 980FC0A629C9C42800771137 /* Starscream */; };
+		980FC0AA29C9C44000771137 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 980FC0A929C9C44000771137 /* SwiftProtobuf */; };
+		980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */; };
+		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
+		987A375F29C6827B00102629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375E29C6827B00102629 /* ContentView.swift */; };
+		987A376129C6827C00102629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376029C6827C00102629 /* Assets.xcassets */; };
+		987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376329C6827C00102629 /* Preview Assets.xcassets */; };
+		987A376C29C72E7500102629 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376B29C72E7500102629 /* StockModel.swift */; };
+		987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
+		987A375929C6827B00102629 /* TradingSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		987A375C29C6827B00102629 /* TradingSimulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingSimulatorApp.swift; sourceTree = "<group>"; };
+		987A375E29C6827B00102629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		987A376029C6827C00102629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		987A376329C6827C00102629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		987A376B29C72E7500102629 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
+		987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceWebSocket.swift; sourceTree = "<group>"; };
+		987A377029C8680600102629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		987A375629C6827B00102629 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				980FC0A729C9C42800771137 /* Starscream in Frameworks */,
+				980FC0AA29C9C44000771137 /* SwiftProtobuf in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		980FC0AB29C9C7BD00771137 /* ProtobufDecoder */ = {
+			isa = PBXGroup;
+			children = (
+				980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */,
+			);
+			path = ProtobufDecoder;
+			sourceTree = "<group>";
+		};
+		987A375029C6827B00102629 = {
+			isa = PBXGroup;
+			children = (
+				987A375B29C6827B00102629 /* TradingSimulator */,
+				987A375A29C6827B00102629 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		987A375A29C6827B00102629 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				987A375929C6827B00102629 /* TradingSimulator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		987A375B29C6827B00102629 /* TradingSimulator */ = {
+			isa = PBXGroup;
+			children = (
+				987A377029C8680600102629 /* Info.plist */,
+				980FC0AB29C9C7BD00771137 /* ProtobufDecoder */,
+				987A376D29C7CC6300102629 /* Network */,
+				987A376A29C72E6D00102629 /* Models */,
+				987A375C29C6827B00102629 /* TradingSimulatorApp.swift */,
+				987A375E29C6827B00102629 /* ContentView.swift */,
+				987A376029C6827C00102629 /* Assets.xcassets */,
+				987A376229C6827C00102629 /* Preview Content */,
+			);
+			path = TradingSimulator;
+			sourceTree = "<group>";
+		};
+		987A376229C6827C00102629 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				987A376329C6827C00102629 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		987A376A29C72E6D00102629 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				987A376B29C72E7500102629 /* StockModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		987A376D29C7CC6300102629 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		987A375829C6827B00102629 /* TradingSimulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 987A376729C6827C00102629 /* Build configuration list for PBXNativeTarget "TradingSimulator" */;
+			buildPhases = (
+				987A375529C6827B00102629 /* Sources */,
+				987A375629C6827B00102629 /* Frameworks */,
+				987A375729C6827B00102629 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TradingSimulator;
+			packageProductDependencies = (
+				980FC0A629C9C42800771137 /* Starscream */,
+				980FC0A929C9C44000771137 /* SwiftProtobuf */,
+			);
+			productName = TradingSimulator;
+			productReference = 987A375929C6827B00102629 /* TradingSimulator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		987A375129C6827B00102629 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					987A375829C6827B00102629 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 987A375429C6827B00102629 /* Build configuration list for PBXProject "TradingSimulator" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 987A375029C6827B00102629;
+			packageReferences = (
+				980FC0A529C9C42800771137 /* XCRemoteSwiftPackageReference "Starscream" */,
+				980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
+			productRefGroup = 987A375A29C6827B00102629 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				987A375829C6827B00102629 /* TradingSimulator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		987A375729C6827B00102629 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */,
+				987A376129C6827C00102629 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		987A375529C6827B00102629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				987A375F29C6827B00102629 /* ContentView.swift in Sources */,
+				987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */,
+				980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */,
+				987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */,
+				987A376C29C72E7500102629 /* StockModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		987A376529C6827C00102629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		987A376629C6827C00102629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		987A376829C6827C00102629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TradingSimulator/Preview Content\"";
+				DEVELOPMENT_TEAM = QJU8QY9SND;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TradingSimulator/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timeInAir.watch.app.TradingSimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		987A376929C6827C00102629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TradingSimulator/Preview Content\"";
+				DEVELOPMENT_TEAM = QJU8QY9SND;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TradingSimulator/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timeInAir.watch.app.TradingSimulator;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		987A375429C6827B00102629 /* Build configuration list for PBXProject "TradingSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				987A376529C6827C00102629 /* Debug */,
+				987A376629C6827C00102629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		987A376729C6827C00102629 /* Build configuration list for PBXNativeTarget "TradingSimulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				987A376829C6827C00102629 /* Debug */,
+				987A376929C6827C00102629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		980FC0A529C9C42800771137 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		980FC0A629C9C42800771137 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 980FC0A529C9C42800771137 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+		980FC0A929C9C44000771137 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 987A375129C6827B00102629 /* Project object */;
+}
