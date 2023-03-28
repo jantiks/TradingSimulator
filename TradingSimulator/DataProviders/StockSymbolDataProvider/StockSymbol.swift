@@ -8,6 +8,7 @@
 import Foundation
 
 struct StockSymbol: Decodable {
+    let ticker: String
     let name: String
     let exchange: String
 }

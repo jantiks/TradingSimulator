@@ -7,6 +7,7 @@
 
 import Foundation
 import Starscream
+import XCAStocksAPI
 
 struct SubscribeModel: Encodable {
     let subscribe: [String]
@@ -75,7 +76,6 @@ class YahooFinanceWebSocket: WebSocketDelegate {
         case .connected(let headers):
             isConnected = true
             print("websocket is connected: \(headers)")
-            self.subscribeToSymbol(["THB=X", "BTC", "ETC", "USDT"])
         case .disconnected(let reason, let code):
             isConnected = false
             print("websocket is disconnected: \(reason) with code: \(code)")

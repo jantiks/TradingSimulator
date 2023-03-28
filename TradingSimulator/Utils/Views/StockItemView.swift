@@ -13,13 +13,14 @@ struct StockItemView: View {
     
     var body: some View {
         HStack {
-            Circle()
-                .frame(width: 30, height: 30)
-                .padding(.leading, 20)
-            Text(stock.symbol.name.uppercased())
-                .font(.headline)
-                .padding(.leading, 6)
-                .foregroundColor(Color.theme.accent)
+            VStack(alignment: .leading) {
+                Text(stock.symbol.ticker.uppercased())
+                    .font(.headline)
+                Text(stock.symbol.name)
+                    
+            }
+            .padding(.leading, 15)
+            .foregroundColor(Color.theme.accent)
             Spacer()
             if showHoldingColumn {
                 VStack(alignment: .trailing) {
@@ -48,6 +49,6 @@ struct StockItemView: View {
 
 struct StockItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""))
+        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""))
     }
 }

@@ -24,6 +24,7 @@
 		987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */; };
 		987C6FBB29D385A8007E0BCF /* StockItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C6FBA29D385A8007E0BCF /* StockItemView.swift */; };
 		987C6FBD29D38823007E0BCF /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C6FBC29D38823007E0BCF /* DoubleExtension.swift */; };
+		987C6FC029D39293007E0BCF /* XCAStocksAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 987C6FBF29D39293007E0BCF /* XCAStocksAPI */; };
 		98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA629CDA16100028EC8 /* StockSymbol.swift */; };
 		98DE4CAA29CDA26500028EC8 /* StockSymbolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */; };
 		98DE4CAB29CDA43000028EC8 /* stocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 98DE4CA429CDA0BC00028EC8 /* stocks.json */; };
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				987C6FC029D39293007E0BCF /* XCAStocksAPI in Frameworks */,
 				980FC0A729C9C42800771137 /* Starscream in Frameworks */,
 				980FC0AA29C9C44000771137 /* SwiftProtobuf in Frameworks */,
 			);
@@ -247,6 +249,7 @@
 			packageProductDependencies = (
 				980FC0A629C9C42800771137 /* Starscream */,
 				980FC0A929C9C44000771137 /* SwiftProtobuf */,
+				987C6FBF29D39293007E0BCF /* XCAStocksAPI */,
 			);
 			productName = TradingSimulator;
 			productReference = 987A375929C6827B00102629 /* TradingSimulator.app */;
@@ -279,6 +282,7 @@
 			packageReferences = (
 				980FC0A529C9C42800771137 /* XCRemoteSwiftPackageReference "Starscream" */,
 				980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				987C6FBE29D39293007E0BCF /* XCRemoteSwiftPackageReference "XCAStocksAPI" */,
 			);
 			productRefGroup = 987A375A29C6827B00102629 /* Products */;
 			projectDirPath = "";
@@ -547,6 +551,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		987C6FBE29D39293007E0BCF /* XCRemoteSwiftPackageReference "XCAStocksAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/XCAStocksAPI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,6 +571,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
 			productName = SwiftProtobuf;
+		};
+		987C6FBF29D39293007E0BCF /* XCAStocksAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 987C6FBE29D39293007E0BCF /* XCRemoteSwiftPackageReference "XCAStocksAPI" */;
+			productName = XCAStocksAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

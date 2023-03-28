@@ -11,12 +11,12 @@ extension MarketsView {
     private class ViewModel: ObservableObject {
         @Published var searchText: String = ""
         @Published var searchItems = [
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""),
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""),
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""),
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""),
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: ""),
-            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(name: "BTC", exchange: "Test"), price: 140, gains: 10, image: "")]
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""),
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""),
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""),
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""),
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""),
+            SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: "")]
     }
 }
 

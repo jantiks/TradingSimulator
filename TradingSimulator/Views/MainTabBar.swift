@@ -6,8 +6,23 @@
 //
 
 import SwiftUI
+import XCAStocksAPI
+
+extension MainTabBar {
+    class ViewModel {
+        init() {
+            
+        }
+        
+        func start() async {
+            let apple1dChart = try! await XCAStocksAPI().fetchQuotes(symbols: "APPL")
+            print(apple1dChart)
+        }
+    }
+}
 
 struct MainTabBar: View {
+    let vn = ViewModel()
     var body: some View {
         TabView {
             MarketsView()
@@ -21,7 +36,6 @@ struct MainTabBar: View {
             PortfolioView()
                 .tabItem {
                     Label("Portfolio", systemImage: "latch.2.case.fill")
-                    
                 }
         }
     }
