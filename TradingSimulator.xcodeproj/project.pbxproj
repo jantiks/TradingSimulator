@@ -22,6 +22,8 @@
 		987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376329C6827C00102629 /* Preview Assets.xcassets */; };
 		987A376C29C72E7500102629 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376B29C72E7500102629 /* StockModel.swift */; };
 		987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */; };
+		987C6FBB29D385A8007E0BCF /* StockItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C6FBA29D385A8007E0BCF /* StockItemView.swift */; };
+		987C6FBD29D38823007E0BCF /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987C6FBC29D38823007E0BCF /* DoubleExtension.swift */; };
 		98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA629CDA16100028EC8 /* StockSymbol.swift */; };
 		98DE4CAA29CDA26500028EC8 /* StockSymbolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */; };
 		98DE4CAB29CDA43000028EC8 /* stocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 98DE4CA429CDA0BC00028EC8 /* stocks.json */; };
@@ -46,6 +48,8 @@
 		987A376B29C72E7500102629 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceWebSocket.swift; sourceTree = "<group>"; };
 		987A377029C8680600102629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		987C6FBA29D385A8007E0BCF /* StockItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockItemView.swift; sourceTree = "<group>"; };
+		987C6FBC29D38823007E0BCF /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		98DE4CA429CDA0BC00028EC8 /* stocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stocks.json; sourceTree = "<group>"; };
 		98DE4CA629CDA16100028EC8 /* StockSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbol.swift; sourceTree = "<group>"; };
 		98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbolDataProvider.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 				98551AA629D25CC90082CB42 /* FontExtension.swift */,
 				98551AAB29D260BC0082CB42 /* ColorExtension.swift */,
 				98551AAD29D264250082CB42 /* UIApplicationExtension.swift */,
+				987C6FBC29D38823007E0BCF /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				98551AA929D25D7C0082CB42 /* SearchBar.swift */,
+				987C6FBA29D385A8007E0BCF /* StockItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,10 +319,12 @@
 				987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */,
 				98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */,
 				98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */,
+				987C6FBD29D38823007E0BCF /* DoubleExtension.swift in Sources */,
 				98DE4CCF29D2571B00028EC8 /* PortfolioView.swift in Sources */,
 				987A376C29C72E7500102629 /* StockModel.swift in Sources */,
 				98551AA729D25CC90082CB42 /* FontExtension.swift in Sources */,
 				98DE4CAA29CDA26500028EC8 /* StockSymbolDataProvider.swift in Sources */,
+				987C6FBB29D385A8007E0BCF /* StockItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,8 +460,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -483,8 +491,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

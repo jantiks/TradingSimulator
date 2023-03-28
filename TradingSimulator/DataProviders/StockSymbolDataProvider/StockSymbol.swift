@@ -11,3 +11,13 @@ struct StockSymbol: Decodable {
     let name: String
     let exchange: String
 }
+
+struct SimpleStockModel: Identifiable {
+    var id: String
+    let symbol: StockSymbol
+    let price: Double
+    let gains: Double
+    let holdingGains: Double? = nil
+    let holdingGainsPercent: Double? = nil
+    let image: String
+}
