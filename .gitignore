@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/swift,swiftpm,xcode
-# Edit at https://www.toptal.com/developers/gitignore?templates=swift,swiftpm,xcode
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpm
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,swift,swiftpm
 
 ### Swift ###
 # Xcode
@@ -104,4 +104,4 @@ xcuserdata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
 
-# End of https://www.toptal.com/developers/gitignore/api/swift,swiftpm,xcode
+# End of https://www.toptal.com/developers/gitignore/api/xcode,swift,swiftpm
