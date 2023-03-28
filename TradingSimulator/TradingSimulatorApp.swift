@@ -11,7 +11,7 @@ import SwiftUI
 struct TradingSimulatorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabBar()
         }
     }
 }

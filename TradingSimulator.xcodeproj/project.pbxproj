@@ -12,26 +12,46 @@
 		980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */; };
 		980FC0AF29C9CDC000771137 /* PricingData.proto in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0AE29C9CDC000771137 /* PricingData.proto */; };
 		980FC0B129C9CDCD00771137 /* PricingData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980FC0B029C9CDCD00771137 /* PricingData.pb.swift */; };
+		98551AA729D25CC90082CB42 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AA629D25CC90082CB42 /* FontExtension.swift */; };
+		98551AAA29D25D7C0082CB42 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AA929D25D7C0082CB42 /* SearchBar.swift */; };
+		98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAB29D260BC0082CB42 /* ColorExtension.swift */; };
+		98551AAE29D264250082CB42 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAD29D264250082CB42 /* UIApplicationExtension.swift */; };
 		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
-		987A375F29C6827B00102629 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375E29C6827B00102629 /* ContentView.swift */; };
+		987A375F29C6827B00102629 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375E29C6827B00102629 /* MainTabBar.swift */; };
 		987A376129C6827C00102629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376029C6827C00102629 /* Assets.xcassets */; };
 		987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 987A376329C6827C00102629 /* Preview Assets.xcassets */; };
 		987A376C29C72E7500102629 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376B29C72E7500102629 /* StockModel.swift */; };
 		987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */; };
+		98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA629CDA16100028EC8 /* StockSymbol.swift */; };
+		98DE4CAA29CDA26500028EC8 /* StockSymbolDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */; };
+		98DE4CAB29CDA43000028EC8 /* stocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 98DE4CA429CDA0BC00028EC8 /* stocks.json */; };
+		98DE4CCB29D2570100028EC8 /* MarketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CCA29D2570100028EC8 /* MarketsView.swift */; };
+		98DE4CCF29D2571B00028EC8 /* PortfolioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CCE29D2571B00028EC8 /* PortfolioView.swift */; };
+		98DE4CD229D259B300028EC8 /* TradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DE4CD129D259B300028EC8 /* TradingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		980FC0AC29C9C7EB00771137 /* ProtobufDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtobufDecoder.swift; sourceTree = "<group>"; };
 		980FC0AE29C9CDC000771137 /* PricingData.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; name = PricingData.proto; path = TradingSimulator/ProtobufDecoder/ProtoFiles/PricingData.proto; sourceTree = SOURCE_ROOT; };
 		980FC0B029C9CDCD00771137 /* PricingData.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PricingData.pb.swift; path = TradingSimulator/ProtobufDecoder/ProtoFiles/PricingData.pb.swift; sourceTree = SOURCE_ROOT; };
+		98551AA629D25CC90082CB42 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		98551AA929D25D7C0082CB42 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		98551AAB29D260BC0082CB42 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		98551AAD29D264250082CB42 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		987A375929C6827B00102629 /* TradingSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987A375C29C6827B00102629 /* TradingSimulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingSimulatorApp.swift; sourceTree = "<group>"; };
-		987A375E29C6827B00102629 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		987A375E29C6827B00102629 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		987A376029C6827C00102629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		987A376329C6827C00102629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		987A376B29C72E7500102629 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooFinanceWebSocket.swift; sourceTree = "<group>"; };
 		987A377029C8680600102629 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		98DE4CA429CDA0BC00028EC8 /* stocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = stocks.json; sourceTree = "<group>"; };
+		98DE4CA629CDA16100028EC8 /* StockSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbol.swift; sourceTree = "<group>"; };
+		98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSymbolDataProvider.swift; sourceTree = "<group>"; };
+		98DE4CCA29D2570100028EC8 /* MarketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketsView.swift; sourceTree = "<group>"; };
+		98DE4CCE29D2571B00028EC8 /* PortfolioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioView.swift; sourceTree = "<group>"; };
+		98DE4CD129D259B300028EC8 /* TradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +85,33 @@
 			path = ProtoFiles;
 			sourceTree = "<group>";
 		};
+		98551AA429D25CB80082CB42 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				98551AA829D25D760082CB42 /* Views */,
+				98551AA529D25CC20082CB42 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		98551AA529D25CC20082CB42 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98551AA629D25CC90082CB42 /* FontExtension.swift */,
+				98551AAB29D260BC0082CB42 /* ColorExtension.swift */,
+				98551AAD29D264250082CB42 /* UIApplicationExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		98551AA829D25D760082CB42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98551AA929D25D7C0082CB42 /* SearchBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		987A375029C6827B00102629 = {
 			isa = PBXGroup;
 			children = (
@@ -84,14 +131,17 @@
 		987A375B29C6827B00102629 /* TradingSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				987A377029C8680600102629 /* Info.plist */,
+				98551AA429D25CB80082CB42 /* Utils */,
+				98DE4CC729D2567900028EC8 /* Views */,
+				98DE4CA829CDA25900028EC8 /* DataProviders */,
 				980FC0AB29C9C7BD00771137 /* ProtobufDecoder */,
 				987A376D29C7CC6300102629 /* Network */,
 				987A376A29C72E6D00102629 /* Models */,
-				987A375C29C6827B00102629 /* TradingSimulatorApp.swift */,
-				987A375E29C6827B00102629 /* ContentView.swift */,
-				987A376029C6827C00102629 /* Assets.xcassets */,
 				987A376229C6827C00102629 /* Preview Content */,
+				987A375C29C6827B00102629 /* TradingSimulatorApp.swift */,
+				98DE4CA429CDA0BC00028EC8 /* stocks.json */,
+				987A377029C8680600102629 /* Info.plist */,
+				987A376029C6827C00102629 /* Assets.xcassets */,
 			);
 			path = TradingSimulator;
 			sourceTree = "<group>";
@@ -118,6 +168,58 @@
 				987A376E29C7CC7400102629 /* YahooFinanceWebSocket.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		98DE4CA829CDA25900028EC8 /* DataProviders */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CAC29CDA4AE00028EC8 /* StockSymbolDataProvider */,
+			);
+			path = DataProviders;
+			sourceTree = "<group>";
+		};
+		98DE4CAC29CDA4AE00028EC8 /* StockSymbolDataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CA929CDA26500028EC8 /* StockSymbolDataProvider.swift */,
+				98DE4CA629CDA16100028EC8 /* StockSymbol.swift */,
+			);
+			path = StockSymbolDataProvider;
+			sourceTree = "<group>";
+		};
+		98DE4CC729D2567900028EC8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CD029D259AC00028EC8 /* TradingView */,
+				98DE4CC929D256F300028EC8 /* PortfolioView */,
+				98DE4CC829D256D000028EC8 /* MarketsView */,
+				987A375E29C6827B00102629 /* MainTabBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		98DE4CC829D256D000028EC8 /* MarketsView */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CCA29D2570100028EC8 /* MarketsView.swift */,
+			);
+			path = MarketsView;
+			sourceTree = "<group>";
+		};
+		98DE4CC929D256F300028EC8 /* PortfolioView */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CCE29D2571B00028EC8 /* PortfolioView.swift */,
+			);
+			path = PortfolioView;
+			sourceTree = "<group>";
+		};
+		98DE4CD029D259AC00028EC8 /* TradingView */ = {
+			isa = PBXGroup;
+			children = (
+				98DE4CD129D259B300028EC8 /* TradingView.swift */,
+			);
+			path = TradingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DE4CAB29CDA43000028EC8 /* stocks.json in Resources */,
 				987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */,
 				987A376129C6827C00102629 /* Assets.xcassets in Resources */,
 			);
@@ -198,13 +301,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				987A375F29C6827B00102629 /* ContentView.swift in Sources */,
+				987A375F29C6827B00102629 /* MainTabBar.swift in Sources */,
 				980FC0AF29C9CDC000771137 /* PricingData.proto in Sources */,
 				987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */,
 				980FC0AD29C9C7EB00771137 /* ProtobufDecoder.swift in Sources */,
+				98DE4CD229D259B300028EC8 /* TradingView.swift in Sources */,
+				98DE4CCB29D2570100028EC8 /* MarketsView.swift in Sources */,
+				98551AAE29D264250082CB42 /* UIApplicationExtension.swift in Sources */,
 				980FC0B129C9CDCD00771137 /* PricingData.pb.swift in Sources */,
+				98551AAA29D25D7C0082CB42 /* SearchBar.swift in Sources */,
 				987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */,
+				98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */,
+				98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */,
+				98DE4CCF29D2571B00028EC8 /* PortfolioView.swift in Sources */,
 				987A376C29C72E7500102629 /* StockModel.swift in Sources */,
+				98551AA729D25CC90082CB42 /* FontExtension.swift in Sources */,
+				98DE4CAA29CDA26500028EC8 /* StockSymbolDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,12 +454,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timeInAir.watch.app.TradingSimulator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tigran.TradingSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -372,12 +485,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timeInAir.watch.app.TradingSimulator;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tigran.TradingSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
