@@ -49,6 +49,6 @@ struct StockItemView: View {
 
 struct StockItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", exchange: "Test"), price: 140, gains: 10, image: ""))
+        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", marketCap: 100), price: 140, gains: 10, image: ""))
     }
 }

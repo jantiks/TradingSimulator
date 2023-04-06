@@ -15,7 +15,7 @@ extension MainTabBar {
         }
         
         func start() async {
-            let apple1dChart = try! await XCAStocksAPI().fetchQuotes(symbols: "APPL")
+            let apple1dChart = try! await XCAStocksAPI().fetchChartData(tickerSymbol: "AAPL", range: .oneDay)
             print(apple1dChart)
         }
     }
