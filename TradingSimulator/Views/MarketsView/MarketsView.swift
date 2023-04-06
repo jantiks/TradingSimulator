@@ -11,26 +11,31 @@ extension MarketsView {
     private class ViewModel: ObservableObject {
         private var stockSymbols = (try? StockSymbolDataProvider.shared.getStockSymbols()) ?? []
         private var currentSearch: DispatchWorkItem?
+        @Published var showLoader = false
         @Published var searchText: String = "" {
             didSet {
                 // Cancel the previous search task
+                showLoader = true
                 currentSearch?.cancel()
-
+                
                 // Create a new search task
                 var searchTask: DispatchWorkItem?
                 searchTask = DispatchWorkItem { [weak self] in
                     guard let searchItems = self?.fuzzySearch(query: self?.searchText ?? "") else { return }
                     guard searchTask?.isCancelled == false else { return }
                     DispatchQueue.main.async {
-                        self?.searchItems = searchItems
+                        withAnimation {
+                            self?.searchItems = Array(searchItems.prefix(7))
+                        }
                     }
                 }
-
+                
                 // Start the new search task on a global queue
                 DispatchQueue.global(qos: .userInteractive).async(execute: searchTask!)
-
+                
                 // Store the current search task
                 currentSearch = searchTask
+                showLoader = false
             }
         }
         @Published var searchItems: [SimpleStockModel] = []
@@ -55,6 +60,9 @@ extension MarketsView {
                 }
             }
             
+            if results.count > 200 {
+                return results.filter({ $0.symbol.name.lowercased().starts(with: query) || $0.symbol.ticker.lowercased().starts(with: query) })
+            }
             // Sort the results by relevance (exact matches first, then fuzzy matches)
             results.sort { result1, result2 in
                 let ticker1Match = result1.symbol.ticker.lowercased() == query
@@ -77,7 +85,7 @@ extension MarketsView {
         func levDis(_ w1: String, _ w2: String) -> Int {
             let empty = [Int](repeating:0, count: w2.count)
             var last = [Int](0...w2.count)
-
+            
             for (i, char1) in w1.enumerated() {
                 var cur = [i + 1] + empty
                 for (j, char2) in w2.enumerated() {
@@ -87,12 +95,12 @@ extension MarketsView {
             }
             return last.last!
         }
-
+        
         
         private func updateFilters() {
             let lowerCasedText = searchText.lowercased()
             let lowerCasedTextCount = lowerCasedText.count
-
+            
             let filtered = stockSymbols
                 .filter({
                     return $0.symbol.ticker.lowercased().contains(lowerCasedText) || $0.symbol.name.lowercased().contains(lowerCasedText)
@@ -153,10 +161,12 @@ struct MarketsView: View {
                 .padding(.top, 10)
                 .padding(.bottom, 20)
             SearchBar(searchText: $vm.searchText)
+            
             List(vm.searchItems) {
                 StockItemView(stock: $0)
                     .listRowInsets(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             }
+            
             .listStyle(PlainListStyle())
             Spacer()
         }
