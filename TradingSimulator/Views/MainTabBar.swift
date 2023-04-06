@@ -16,13 +16,14 @@ extension MainTabBar {
         
         func start() async {
             let apple1dChart = try! await XCAStocksAPI().fetchChartData(tickerSymbol: "AAPL", range: .oneDay)
-            print(apple1dChart)
+            let ticker = try! await XCAStocksAPI().fetchQuotes(symbols: "AAPL")
+            print(ticker)
         }
     }
 }
 
 struct MainTabBar: View {
-    let vn = ViewModel()
+    let vm = ViewModel()
     var body: some View {
         TabView {
             MarketsView()
@@ -37,6 +38,8 @@ struct MainTabBar: View {
                 .tabItem {
                     Label("Portfolio", systemImage: "latch.2.case.fill")
                 }
+        }.task {
+            await vm.start()
         }
     }
 }

@@ -41,16 +41,16 @@ extension MarketsView {
             let query = query.lowercased()
             
             for stockSymbol in stockSymbols {
-                let tickerMatch = stockSymbol.ticker.lowercased().contains(query)
-                let nameMatch = stockSymbol.name.lowercased().contains(query)
+                let tickerMatch = stockSymbol.symbol.ticker.lowercased().contains(query)
+                let nameMatch = stockSymbol.symbol.name.lowercased().contains(query)
                 
                 if tickerMatch || nameMatch {
-                    results.append(SimpleStockModel(symbol: stockSymbol, price: 0, gains: 0, image: ""))
+                    results.append(stockSymbol)
                 } else {
                     // Calculate the Levenshtein distance between the query and the company name
-                    let distance = levDis(query, stockSymbol.name.lowercased())
+                    let distance = levDis(query, stockSymbol.symbol.name.lowercased())
                     if distance <= 2 {
-                        results.append(SimpleStockModel(symbol: stockSymbol, price: 0, gains: 0, image: ""))
+                        results.append(stockSymbol)
                     }
                 }
             }
@@ -95,48 +95,48 @@ extension MarketsView {
 
             let filtered = stockSymbols
                 .filter({
-                    return $0.ticker.lowercased().contains(lowerCasedText) || $0.name.lowercased().contains(lowerCasedText)
+                    return $0.symbol.ticker.lowercased().contains(lowerCasedText) || $0.symbol.name.lowercased().contains(lowerCasedText)
                 })
                 .sorted(by: { (a, b) in
                     
-                    let aMatchRange = a.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    let bMatchRange = b.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
+                    let aMatchRange = a.symbol.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
+                    let bMatchRange = b.symbol.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
                     
-                    let aTickerRange = a.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    let bTickerRange = b.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
+                    let aTickerRange = a.symbol.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
+                    let bTickerRange = b.symbol.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
                     if lowerCasedTextCount <= 3 {
                         // iata priority
-                        if aTickerRange?.lowerBound == a.ticker.startIndex && bTickerRange?.lowerBound == b.ticker.startIndex {
+                        if aTickerRange?.lowerBound == a.symbol.ticker.startIndex && bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
                             return aTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < bTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aTickerRange?.lowerBound == a.ticker.startIndex {
+                        } else if aTickerRange?.lowerBound == a.symbol.ticker.startIndex {
                             return true
-                        } else if bTickerRange?.lowerBound == b.ticker.startIndex {
+                        } else if bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
                             return false
-                        } else if aMatchRange?.lowerBound == a.name.startIndex && bMatchRange?.lowerBound == b.name.startIndex {
+                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex && bMatchRange?.lowerBound == b.symbol.name.startIndex {
                             return aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aMatchRange?.lowerBound == a.name.startIndex {
+                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex {
                             return true
-                        } else if bMatchRange?.lowerBound == b.name.startIndex {
+                        } else if bMatchRange?.lowerBound == b.symbol.name.startIndex {
                             return false
                         } else {
-                            return a.name < b.name
+                            return a.symbol.name < b.symbol.name
                         }
                     } else {
                         // city name priority
-                        if aMatchRange?.lowerBound == a.name.startIndex && bMatchRange?.lowerBound == b.name.startIndex {
+                        if aMatchRange?.lowerBound == a.symbol.name.startIndex && bMatchRange?.lowerBound == b.symbol.name.startIndex {
                             return aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aTickerRange?.lowerBound == a.ticker.startIndex && bMatchRange?.lowerBound == b.ticker.startIndex {
+                        } else if aTickerRange?.lowerBound == a.symbol.ticker.startIndex && bMatchRange?.lowerBound == b.symbol.ticker.startIndex {
                             return aTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < bTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aMatchRange?.lowerBound == a.name.startIndex || aTickerRange?.lowerBound == a.ticker.startIndex {
+                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex || aTickerRange?.lowerBound == a.symbol.ticker.startIndex {
                             return true
-                        } else if bMatchRange?.lowerBound == b.name.startIndex || bTickerRange?.lowerBound == b.ticker.startIndex {
+                        } else if bMatchRange?.lowerBound == b.symbol.name.startIndex || bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
                             return false
                         } else {
-                            return a.name < b.name
+                            return a.symbol.name < b.symbol.name
                         }
                     }
                 })
-            searchItems = Array(filtered.prefix(20)).map({ SimpleStockModel(id: UUID().uuidString, symbol: $0, price: 10, gains: 10, image: "") })
+            searchItems = Array(filtered.prefix(20))
         }
     }
 }

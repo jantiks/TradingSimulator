@@ -14,11 +14,11 @@ enum StockSymbolDataProviderErrors: Error {
 class StockSymbolDataProvider {
     
     static let shared = StockSymbolDataProvider()
-    private var stockSymbols: [StockSymbol] = []
+    private var stockSymbols: [SimpleStockModel] = []
     
     private init() { }
     
-    func getStockSymbols() throws -> [StockSymbol] {
+    func getStockSymbols() throws -> [SimpleStockModel] {
         guard stockSymbols.isEmpty else {
             return stockSymbols
         }
@@ -27,8 +27,8 @@ class StockSymbolDataProvider {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let symbols = try! JSONDecoder().decode([StockSymbol].self, from: data)
-                stockSymbols = symbols
-                return symbols
+                stockSymbols = symbols.map({ SimpleStockModel(symbol: $0, price: 0, gains: 0, image: "") })
+                return stockSymbols
             } catch {
                 throw StockSymbolDataProviderErrors.parseError
             }

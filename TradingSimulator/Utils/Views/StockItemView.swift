@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StockItemView: View {
-    let stock: SimpleStockModel
+    @StateObject var stock: SimpleStockModel
     let showHoldingColumn: Bool = false
     
     var body: some View {
@@ -32,16 +32,24 @@ struct StockItemView: View {
             }
             
             VStack(alignment: .trailing) {
-                Text(stock.price.asCurrencyWith6Decimals())
-                    .bold()
-                    .foregroundColor(Color.theme.accent)
-                Text(stock.gains.asPercentString())
-                    .foregroundColor(
-                        stock.gains >= 0 ? Color.theme.green : Color.theme.red
-                    )
+                if stock.isUpdating {
+                    ProgressView()
+                        .tint(Color.theme.accent)
+                } else {
+                    Text(stock.price.asCurrencyWith6Decimals())
+                        .bold()
+                        .foregroundColor(Color.theme.accent)
+                    Text(stock.gains.asPercentString())
+                        .foregroundColor(
+                            stock.gains >= 0 ? Color.theme.green : Color.theme.red
+                        )
+                }
             }
-            .padding(.trailing, -10)
-            .frame(width: UIScreen.main.bounds.width / 3.5)
+            .padding(.trailing, -30)
+            .frame(width: UIScreen.main.bounds.width / 3)
+        }
+        .task {
+            await stock.updatePrice()
         }
         .font(.subheadline)
     }

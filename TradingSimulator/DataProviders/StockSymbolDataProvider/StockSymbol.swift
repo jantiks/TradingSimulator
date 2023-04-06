@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XCAStocksAPI
 
 struct StockSymbol: Decodable {
     let ticker: String
@@ -32,12 +33,40 @@ struct StockSymbol: Decodable {
     }
 }
 
-struct SimpleStockModel: Identifiable {
+final class SimpleStockModel: Identifiable, ObservableObject {
+    @Published var isUpdating = false
+    
     var id: String = UUID().uuidString
     let symbol: StockSymbol
-    let price: Double
-    let gains: Double
-    let holdingGains: Double? = nil
-    let holdingGainsPercent: Double? = nil
-    let image: String
+    @Published var price: Double
+    @Published var gains: Double
+    @Published var holdingGains: Double? = nil
+    @Published var holdingGainsPercent: Double? = nil
+    var image: String
+    var lastUpdatedTime: Date? = nil
+    
+    init(isUpdating: Bool = false, id: String = UUID().uuidString, symbol: StockSymbol, price: Double, gains: Double, image: String) {
+        self.isUpdating = isUpdating
+        self.id = id
+        self.symbol = symbol
+        self.price = price
+        self.gains = gains
+        self.image = image
+    }
+    
+    func updatePrice() async {
+        guard lastUpdatedTime == nil || lastUpdatedTime!.timeIntervalSinceNow >= 5 * 60 else { return }
+        lastUpdatedTime = Date()
+        
+        defer {
+            isUpdating = false
+        }
+        
+        isUpdating = true
+        let stockApi = XCAStocksAPI()
+        guard let stockQuote = try? await stockApi.fetchQuotes(symbols: symbol.ticker), let quote = stockQuote.first else { return }
+        print("asd stockitem \(symbol.ticker) : \(quote.regularMarketPrice!)")
+        price = quote.regularMarketPrice ?? 0.0
+        gains = quote.regularMarketChangePercent ?? 0.0
+    }
 }
