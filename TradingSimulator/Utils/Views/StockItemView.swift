@@ -12,7 +12,7 @@ struct StockItemView: View {
     let showHoldingColumn: Bool = false
     
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             VStack(alignment: .leading) {
                 Text(stock.symbol.ticker.uppercased())
                     .font(.headline)
@@ -32,20 +32,25 @@ struct StockItemView: View {
             }
             
             VStack(alignment: .trailing) {
-                if stock.isUpdating {
-                    ProgressView()
-                        .tint(Color.theme.accent)
-                } else {
-                    Text(stock.price.asCurrencyWith6Decimals())
-                        .bold()
-                        .foregroundColor(Color.theme.accent)
-                    Text(stock.gains.asPercentString())
-                        .foregroundColor(
-                            stock.gains >= 0 ? Color.theme.green : Color.theme.red
-                        )
+                HStack {
+                    Spacer()
+                    if stock.isUpdating {
+                        ProgressView()
+                            .tint(Color.theme.accent)
+                    } else {
+                        VStack(alignment: .trailing) {
+                            Text(stock.price.asCurrencyWith6Decimals())
+                                .bold()
+                                .foregroundColor(Color.theme.accent)
+                            Text(stock.gains.asPercentString())
+                                .foregroundColor(
+                                    stock.gains >= 0 ? Color.theme.green : Color.theme.red
+                                )
+                        }
+                    }
                 }
             }
-            .padding(.trailing, -30)
+            .padding(.trailing, 20)
             .frame(width: UIScreen.main.bounds.width / 3)
         }
         .task {
@@ -57,6 +62,6 @@ struct StockItemView: View {
 
 struct StockItemView_Previews: PreviewProvider {
     static var previews: some View {
-        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "BTC", name: "Bitcoin", marketCap: 100), price: 140, gains: 10, image: ""))
+        StockItemView(stock: SimpleStockModel(id: UUID().uuidString, symbol: StockSymbol(ticker: "AACIW", name: "Bitcoin", marketCap: 100), price: 140, gains: 10, image: ""))
     }
 }

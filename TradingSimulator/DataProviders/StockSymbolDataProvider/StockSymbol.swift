@@ -59,14 +59,20 @@ final class SimpleStockModel: Identifiable, ObservableObject {
         lastUpdatedTime = Date()
         
         defer {
-            isUpdating = false
+            DispatchQueue.main.async {
+                self.isUpdating = false
+            }
         }
         
-        isUpdating = true
+        DispatchQueue.main.async {
+            self.isUpdating = true
+        }
         let stockApi = XCAStocksAPI()
         guard let stockQuote = try? await stockApi.fetchQuotes(symbols: symbol.ticker), let quote = stockQuote.first else { return }
-        print("asd stockitem \(symbol.ticker) : \(quote.regularMarketPrice!)")
-        price = quote.regularMarketPrice ?? 0.0
-        gains = quote.regularMarketChangePercent ?? 0.0
+
+        DispatchQueue.main.async {
+            self.price = quote.regularMarketPrice ?? 0.0
+            self.gains = quote.regularMarketChangePercent ?? 0.0
+        }
     }
 }
