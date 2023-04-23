@@ -12,6 +12,9 @@ struct TradingSimulatorApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabBar()
+                .onAppear(perform: {
+                    YahooFinanceWebSocket.shared.connect()
+                })
         }
     }
 }

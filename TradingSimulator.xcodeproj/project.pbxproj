@@ -16,6 +16,7 @@
 		98551AAA29D25D7C0082CB42 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AA929D25D7C0082CB42 /* SearchBar.swift */; };
 		98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAB29D260BC0082CB42 /* ColorExtension.swift */; };
 		98551AAE29D264250082CB42 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAD29D264250082CB42 /* UIApplicationExtension.swift */; };
+		985FC94029E1FC9C008412AA /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 985FC93F29E1FC9C008412AA /* data.json */; };
 		98644F7829D8692C006BBE39 /* nasdaq_full_tickers.json in Resources */ = {isa = PBXBuildFile; fileRef = 98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */; };
 		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
 		987A375F29C6827B00102629 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375E29C6827B00102629 /* MainTabBar.swift */; };
@@ -42,6 +43,7 @@
 		98551AA929D25D7C0082CB42 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		98551AAB29D260BC0082CB42 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		98551AAD29D264250082CB42 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		985FC93F29E1FC9C008412AA /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nasdaq_full_tickers.json; sourceTree = "<group>"; };
 		987A375929C6827B00102629 /* TradingSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		987A375C29C6827B00102629 /* TradingSimulatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingSimulatorApp.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				987A376229C6827C00102629 /* Preview Content */,
 				987A375C29C6827B00102629 /* TradingSimulatorApp.swift */,
 				98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */,
+				985FC93F29E1FC9C008412AA /* data.json */,
 				98DE4CA429CDA0BC00028EC8 /* stocks.json */,
 				987A377029C8680600102629 /* Info.plist */,
 				987A376029C6827C00102629 /* Assets.xcassets */,
@@ -304,6 +307,7 @@
 				98DE4CAB29CDA43000028EC8 /* stocks.json in Resources */,
 				987A376429C6827C00102629 /* Preview Assets.xcassets in Resources */,
 				98644F7829D8692C006BBE39 /* nasdaq_full_tickers.json in Resources */,
+				985FC94029E1FC9C008412AA /* data.json in Resources */,
 				987A376129C6827C00102629 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

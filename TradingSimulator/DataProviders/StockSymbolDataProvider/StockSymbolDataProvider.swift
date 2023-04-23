@@ -23,11 +23,11 @@ class StockSymbolDataProvider {
             return stockSymbols
         }
         
-        if let path = Bundle.main.path(forResource: "nasdaq_full_tickers", ofType: "json") {
+        if let path = Bundle.main.path(forResource: "stocks", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let symbols = try! JSONDecoder().decode([StockSymbol].self, from: data)
-                stockSymbols = symbols.map({ SimpleStockModel(symbol: $0, price: 0, gains: 0, image: "") })
+                stockSymbols = symbols.filter({ Double($0.ticker) == nil && Int($0.ticker) == nil }).map({ SimpleStockModel(symbol: $0, price: nil, gains: nil, image: "") })
                 return stockSymbols
             } catch {
                 throw StockSymbolDataProviderErrors.parseError

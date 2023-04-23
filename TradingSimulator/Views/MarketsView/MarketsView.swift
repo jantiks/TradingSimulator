@@ -11,10 +11,13 @@ extension MarketsView {
     private class ViewModel: ObservableObject {
         private var stockSymbols = (try? StockSymbolDataProvider.shared.getStockSymbols()) ?? []
         private var currentSearch: DispatchWorkItem?
+        
+        @Published var searchItems: [SimpleStockModel] = []
         @Published var showLoader = false
         @Published var searchText: String = "" {
             didSet {
                 // Cancel the previous search task
+                guard !searchText.isEmpty else { return }
                 showLoader = true
                 currentSearch?.cancel()
                 
@@ -25,7 +28,7 @@ extension MarketsView {
                     guard searchTask?.isCancelled == false else { return }
                     DispatchQueue.main.async {
                         withAnimation {
-                            self?.searchItems = Array(searchItems.prefix(7))
+                            self?.searchItems = Array(searchItems.prefix(20))
                         }
                     }
                 }
@@ -38,10 +41,9 @@ extension MarketsView {
                 showLoader = false
             }
         }
-        @Published var searchItems: [SimpleStockModel] = []
         
-        
-        func fuzzySearch(query: String) -> [SimpleStockModel] {
+        // MARK: private
+        private func fuzzySearch(query: String) -> [SimpleStockModel] {
             var results: [SimpleStockModel] = []
             let query = query.lowercased()
             
@@ -82,7 +84,7 @@ extension MarketsView {
             return results
         }
         
-        func levDis(_ w1: String, _ w2: String) -> Int {
+        private func levDis(_ w1: String, _ w2: String) -> Int {
             let empty = [Int](repeating:0, count: w2.count)
             var last = [Int](0...w2.count)
             
@@ -94,57 +96,6 @@ extension MarketsView {
                 last = cur
             }
             return last.last!
-        }
-        
-        
-        private func updateFilters() {
-            let lowerCasedText = searchText.lowercased()
-            let lowerCasedTextCount = lowerCasedText.count
-            
-            let filtered = stockSymbols
-                .filter({
-                    return $0.symbol.ticker.lowercased().contains(lowerCasedText) || $0.symbol.name.lowercased().contains(lowerCasedText)
-                })
-                .sorted(by: { (a, b) in
-                    
-                    let aMatchRange = a.symbol.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    let bMatchRange = b.symbol.name.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    
-                    let aTickerRange = a.symbol.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    let bTickerRange = b.symbol.ticker.range(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-                    if lowerCasedTextCount <= 3 {
-                        // iata priority
-                        if aTickerRange?.lowerBound == a.symbol.ticker.startIndex && bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
-                            return aTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < bTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aTickerRange?.lowerBound == a.symbol.ticker.startIndex {
-                            return true
-                        } else if bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
-                            return false
-                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex && bMatchRange?.lowerBound == b.symbol.name.startIndex {
-                            return aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex {
-                            return true
-                        } else if bMatchRange?.lowerBound == b.symbol.name.startIndex {
-                            return false
-                        } else {
-                            return a.symbol.name < b.symbol.name
-                        }
-                    } else {
-                        // city name priority
-                        if aMatchRange?.lowerBound == a.symbol.name.startIndex && bMatchRange?.lowerBound == b.symbol.name.startIndex {
-                            return aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < aMatchRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aTickerRange?.lowerBound == a.symbol.ticker.startIndex && bMatchRange?.lowerBound == b.symbol.ticker.startIndex {
-                            return aTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "") < bTickerRange?.upperBound ?? String.Index(utf16Offset: 0, in: "")
-                        } else if aMatchRange?.lowerBound == a.symbol.name.startIndex || aTickerRange?.lowerBound == a.symbol.ticker.startIndex {
-                            return true
-                        } else if bMatchRange?.lowerBound == b.symbol.name.startIndex || bTickerRange?.lowerBound == b.symbol.ticker.startIndex {
-                            return false
-                        } else {
-                            return a.symbol.name < b.symbol.name
-                        }
-                    }
-                })
-            searchItems = Array(filtered.prefix(20))
         }
     }
 }

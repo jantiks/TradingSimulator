@@ -24,9 +24,9 @@ struct StockItemView: View {
             Spacer()
             if showHoldingColumn {
                 VStack(alignment: .trailing) {
-                    Text((stock.holdingGains ?? 0.0).asCurrencyWith6Decimals())
+                    Text((stock.holdingGains)?.asCurrencyWith6Decimals() ?? "--")
                         .bold()
-                    Text((stock.holdingGainsPercent ?? 0.0).asPercentString())
+                    Text((stock.holdingGainsPercent)?.asPercentString() ?? "--")
                 }
                 .foregroundColor(Color.theme.accent)
             }
@@ -39,12 +39,12 @@ struct StockItemView: View {
                             .tint(Color.theme.accent)
                     } else {
                         VStack(alignment: .trailing) {
-                            Text(stock.price.asCurrencyWith6Decimals())
+                            Text(stock.price?.asCurrencyWith6Decimals() ?? "--")
                                 .bold()
                                 .foregroundColor(Color.theme.accent)
-                            Text(stock.gains.asPercentString())
+                            Text(stock.gains?.asPercentString() ?? "--")
                                 .foregroundColor(
-                                    stock.gains >= 0 ? Color.theme.green : Color.theme.red
+                                    (stock.gains ?? 0.0) >= 0 ? Color.theme.green : Color.theme.red
                                 )
                         }
                     }
