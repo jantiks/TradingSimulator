@@ -9,21 +9,22 @@ import SwiftUI
 import XCAStocksAPI
 
 extension MainTabBar {
-    class ViewModel {
+    class ViewModel: ObservableObject {
+        @Published var showTradingView = false
         init() {
             
         }
         
         func start() async {
-            let apple1dChart = try! await XCAStocksAPI().fetchChartData(tickerSymbol: "AAPL", range: .oneDay)
-            let ticker = try! await XCAStocksAPI().fetchQuotes(symbols: "AAPL")
-            print(ticker)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self.showTradingView = true
+            })
         }
     }
 }
 
 struct MainTabBar: View {
-    let vm = ViewModel()
+    @StateObject var vm = ViewModel()
     var body: some View {
         TabView {
             MarketsView()
@@ -38,7 +39,11 @@ struct MainTabBar: View {
                 .tabItem {
                     Label("Portfolio", systemImage: "latch.2.case.fill")
                 }
-        }.task {
+        }
+        .fullScreenCover(isPresented: $vm.showTradingView, content: {
+            TradeStockView(stock: .init(symbol: .init(ticker: "AAPL", name: "Apple inc.", marketCap: 120), price: 210, gains: 120, image: ""))
+        })
+        .task {
             await vm.start()
         }
     }

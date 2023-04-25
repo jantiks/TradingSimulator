@@ -42,6 +42,8 @@ final class SimpleStockModel: Identifiable, ObservableObject {
     @Published var gains: Double?
     @Published var holdingGains: Double? = nil
     @Published var holdingGainsPercent: Double? = nil
+    @Published var chartData: ChartData?
+    @Published var isUpdatingChartData = false
     var image: String
     var lastUpdatedTime: Date? = nil
     
@@ -54,10 +56,27 @@ final class SimpleStockModel: Identifiable, ObservableObject {
         self.image = image
     }
     
+    func updateChartData() async {
+        DispatchQueue.main.async {
+            self.isUpdatingChartData = true
+        }
+        let stockApi = XCAStocksAPI()
+
+        guard let chartData = try! await stockApi.fetchChartData(tickerSymbol: symbol.ticker, range: .oneYear) else {
+            self.isUpdatingChartData = false
+            return
+        }
+        print("asd task completed updateChartData \(chartData.indicators.count)")
+        DispatchQueue.main.async {
+            self.isUpdatingChartData = false
+            self.chartData = chartData
+        }
+    }
+    
     func updatePrice() async {
         guard lastUpdatedTime == nil || lastUpdatedTime!.timeIntervalSinceNow >= 5 * 60 else { return }
         lastUpdatedTime = Date()
-        
+
         DispatchQueue.main.async {
             self.isUpdating = true
         }

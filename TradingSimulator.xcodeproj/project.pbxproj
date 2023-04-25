@@ -16,6 +16,7 @@
 		98551AAA29D25D7C0082CB42 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AA929D25D7C0082CB42 /* SearchBar.swift */; };
 		98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAB29D260BC0082CB42 /* ColorExtension.swift */; };
 		98551AAE29D264250082CB42 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAD29D264250082CB42 /* UIApplicationExtension.swift */; };
+		9857BBBC29F5DD660030F160 /* TradeStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857BBBB29F5DD660030F160 /* TradeStockView.swift */; };
 		985FC94029E1FC9C008412AA /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 985FC93F29E1FC9C008412AA /* data.json */; };
 		98644F7829D8692C006BBE39 /* nasdaq_full_tickers.json in Resources */ = {isa = PBXBuildFile; fileRef = 98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */; };
 		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
@@ -43,6 +44,7 @@
 		98551AA929D25D7C0082CB42 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		98551AAB29D260BC0082CB42 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		98551AAD29D264250082CB42 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
+		9857BBBB29F5DD660030F160 /* TradeStockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeStockView.swift; sourceTree = "<group>"; };
 		985FC93F29E1FC9C008412AA /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nasdaq_full_tickers.json; sourceTree = "<group>"; };
 		987A375929C6827B00102629 /* TradingSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradingSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,14 @@
 				987C6FBA29D385A8007E0BCF /* StockItemView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9857BBBA29F5DD430030F160 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9857BBBB29F5DD660030F160 /* TradeStockView.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		987A375029C6827B00102629 = {
@@ -204,6 +214,7 @@
 		98DE4CC729D2567900028EC8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9857BBBA29F5DD430030F160 /* New Group */,
 				98DE4CD029D259AC00028EC8 /* TradingView */,
 				98DE4CC929D256F300028EC8 /* PortfolioView */,
 				98DE4CC829D256D000028EC8 /* MarketsView */,
@@ -331,6 +342,7 @@
 				987A376F29C7CC7400102629 /* YahooFinanceWebSocket.swift in Sources */,
 				98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */,
 				98DE4CA729CDA16100028EC8 /* StockSymbol.swift in Sources */,
+				9857BBBC29F5DD660030F160 /* TradeStockView.swift in Sources */,
 				987C6FBD29D38823007E0BCF /* DoubleExtension.swift in Sources */,
 				98DE4CCF29D2571B00028EC8 /* PortfolioView.swift in Sources */,
 				987A376C29C72E7500102629 /* StockModel.swift in Sources */,
