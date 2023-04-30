@@ -33,7 +33,11 @@ struct StockSymbol: Decodable {
     }
 }
 
-final class SimpleStockModel: Identifiable, ObservableObject {
+final class SimpleStockModel: Identifiable, ObservableObject, Equatable {
+    static func == (lhs: SimpleStockModel, rhs: SimpleStockModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     @Published var isUpdating = false
     
     var id: String = UUID().uuidString
@@ -62,7 +66,7 @@ final class SimpleStockModel: Identifiable, ObservableObject {
         }
         let stockApi = XCAStocksAPI()
 
-        guard let chartData = try! await stockApi.fetchChartData(tickerSymbol: symbol.ticker, range: .oneYear) else {
+        guard let chartData = try! await stockApi.fetchChartData(tickerSymbol: symbol.ticker, range: .oneDay) else {
             self.isUpdatingChartData = false
             return
         }
@@ -70,6 +74,7 @@ final class SimpleStockModel: Identifiable, ObservableObject {
         DispatchQueue.main.async {
             self.isUpdatingChartData = false
             self.chartData = chartData
+            print("asd count \(chartData.indicators.count)")
         }
     }
     

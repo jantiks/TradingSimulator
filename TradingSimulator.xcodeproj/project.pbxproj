@@ -17,6 +17,8 @@
 		98551AAC29D260BC0082CB42 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAB29D260BC0082CB42 /* ColorExtension.swift */; };
 		98551AAE29D264250082CB42 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98551AAD29D264250082CB42 /* UIApplicationExtension.swift */; };
 		9857BBBC29F5DD660030F160 /* TradeStockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9857BBBB29F5DD660030F160 /* TradeStockView.swift */; };
+		9857BBBF29FC50600030F160 /* DomainGesture in Frameworks */ = {isa = PBXBuildFile; productRef = 9857BBBE29FC50600030F160 /* DomainGesture */; };
+		9857BBC229FDACBB0030F160 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 9857BBC129FDACBB0030F160 /* Introspect */; };
 		985FC94029E1FC9C008412AA /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 985FC93F29E1FC9C008412AA /* data.json */; };
 		98644F7829D8692C006BBE39 /* nasdaq_full_tickers.json in Resources */ = {isa = PBXBuildFile; fileRef = 98644F7729D8692B006BBE39 /* nasdaq_full_tickers.json */; };
 		987A375D29C6827B00102629 /* TradingSimulatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987A375C29C6827B00102629 /* TradingSimulatorApp.swift */; };
@@ -70,7 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9857BBBF29FC50600030F160 /* DomainGesture in Frameworks */,
 				987C6FC029D39293007E0BCF /* XCAStocksAPI in Frameworks */,
+				9857BBC229FDACBB0030F160 /* Introspect in Frameworks */,
 				980FC0A729C9C42800771137 /* Starscream in Frameworks */,
 				980FC0AA29C9C44000771137 /* SwiftProtobuf in Frameworks */,
 			);
@@ -267,6 +271,8 @@
 				980FC0A629C9C42800771137 /* Starscream */,
 				980FC0A929C9C44000771137 /* SwiftProtobuf */,
 				987C6FBF29D39293007E0BCF /* XCAStocksAPI */,
+				9857BBBE29FC50600030F160 /* DomainGesture */,
+				9857BBC129FDACBB0030F160 /* Introspect */,
 			);
 			productName = TradingSimulator;
 			productReference = 987A375929C6827B00102629 /* TradingSimulator.app */;
@@ -300,6 +306,8 @@
 				980FC0A529C9C42800771137 /* XCRemoteSwiftPackageReference "Starscream" */,
 				980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
 				987C6FBE29D39293007E0BCF /* XCRemoteSwiftPackageReference "XCAStocksAPI" */,
+				9857BBBD29FC50600030F160 /* XCRemoteSwiftPackageReference "domain-gesture" */,
+				9857BBC029FDACBB0030F160 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 987A375A29C6827B00102629 /* Products */;
 			projectDirPath = "";
@@ -571,6 +579,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		9857BBBD29FC50600030F160 /* XCRemoteSwiftPackageReference "domain-gesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/levitatingpineapple/domain-gesture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		9857BBC029FDACBB0030F160 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		987C6FBE29D39293007E0BCF /* XCRemoteSwiftPackageReference "XCAStocksAPI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alfianlosari/XCAStocksAPI.git";
@@ -591,6 +615,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 980FC0A829C9C44000771137 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
 			productName = SwiftProtobuf;
+		};
+		9857BBBE29FC50600030F160 /* DomainGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9857BBBD29FC50600030F160 /* XCRemoteSwiftPackageReference "domain-gesture" */;
+			productName = DomainGesture;
+		};
+		9857BBC129FDACBB0030F160 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9857BBC029FDACBB0030F160 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 		987C6FBF29D39293007E0BCF /* XCAStocksAPI */ = {
 			isa = XCSwiftPackageProductDependency;
