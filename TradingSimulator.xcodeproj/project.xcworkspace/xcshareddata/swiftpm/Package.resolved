@@ -39,10 +39,10 @@
     {
       "identity" : "xcastocksapi",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/alfianlosari/XCAStocksAPI.git",
+      "location" : "https://github.com/jantiks/XCAStocksAPI.git",
       "state" : {
         "branch" : "main",
-        "revision" : "2b2116f70ac12727a8e17918ea3e94fd5687bd0e"
+        "revision" : "de7788640e4fcb48ce49864dbd6be47935632eb1"
       }
     }
   ],

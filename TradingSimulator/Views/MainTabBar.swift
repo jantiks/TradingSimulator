@@ -41,7 +41,7 @@ struct MainTabBar: View {
                 }
         }
         .fullScreenCover(isPresented: $vm.showTradingView, content: {
-            TradeStockView(stock: .init(symbol: .init(ticker: "AAPL", name: "Apple inc.", marketCap: 120), price: 210, gains: 120, image: ""))
+            TradeStockView(stock: .init(symbol: .init(ticker: "MSFT", name: "Apple inc.", marketCap: 120), price: 210, gains: 120, image: ""))
         })
         .task {
             await vm.start()
